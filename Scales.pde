@@ -10,7 +10,9 @@ including nested loops and compound conditionals. 2-AP-12
 
 void setup() {
   size(800, 800);  //feel free to change the size
-  noLoop(); //stops the draw() function from repeating
+ noLoop();
+ colorMode(HSB, 360,100,100);
+
 }
 
 void draw() {
@@ -25,12 +27,26 @@ void draw() {
 void scale(int y, int x) {
   //your code here
   
-  stroke(245, 100, 185); // black stroke
+  //stroke(245, 100, 185); 
   strokeWeight(2); // thickness of the arc line
+ float diam = 0;
+  color from = color(289, 59, 94);
+  color to = color(360,100,100);
 
-ellipse(x,y,200,200);
-arc(
-fill(242, 128, 195);
 
 
+  noFill();
+  
+  for (diam = 0; diam < 150; diam ++) { 
+   color betweenColor = lerpColor(from, to, diam/200);
+   stroke(betweenColor);
+   ellipse(x,y,diam,diam);
+   triangle(x+30,y,x,y+30,x,y);
+   triangle(x+-30,y,x,y+-30,x,y);
+ 
+      
+
+
+  }
 }
+
